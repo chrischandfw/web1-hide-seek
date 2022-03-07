@@ -26,6 +26,13 @@
 
 [Buggy Hide and Seek](https://github.com/alchemycodelab/buggy-js-hide-and-seek/)
 
+HTML Plan
+-3 destination elements- showing user win, lose, and total state when changed
+
+-3 buttons- to let user choose which to guess by button.addEventListener('click', () =>) {});
+
+-3 image tags to show tree, shed, smiley face, and boulder
+
 ### Live Example:
 https://alchemycodelab.github.io/web-01-hide-and-seek/
 
