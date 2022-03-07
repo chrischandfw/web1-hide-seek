@@ -66,11 +66,9 @@ function handleGuess(userGuess, correctSpot) {
 	// we can do that by removing the .face class from all containers
 
 	// then increment the guesses
-	if (userGuess === correctSpot) {
-		totalGuesses++;
-	}
+	totalGuesses++;
 	// then use getElementById and the correctSpot string to grab the appropriate container from the DOM
-
+	const
 	// then add the .face css class to that element so that the face shows up
 
 	// then if the user guess is correct, increment the correct guesses
