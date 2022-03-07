@@ -16,51 +16,70 @@ let correctGuesses = 0;
 let totalGuesses = 0;
 
 shedButton.addEventListener('click', () => {
-    // get a random item to call the 'correct spot'
-
-    // call the handleGuess function with the correct parameters (the user's guess and the "correct" hiding place) to do DOM work
+	// get a random item to call the 'correct spot'
+	const correctSpot = getRandomHidingSpot();
+	handleGuess('shed', correctSpot);
+	// call the handleGuess function with the correct parameters (the user's guess and the "correct" hiding place) to do DOM work
 });
 
 treeButton.addEventListener('click', () => {
-    // get a random item to call the 'correct spot'
-
-    // call the handleGuess function with the correct parameters (the user's guess and the "correct" hiding place) to do DOM work
+	// get a random item to call the 'correct spot'
+	const correctSpot = getRandomHidingSpot();
+	handleGuess('tree', correctSpot);
+	// call the handleGuess function with the correct parameters (the user's guess and the "correct" hiding place) to do DOM work
 });
 
 boulderButton.addEventListener('click', () => {
-    // get a random item to call the 'correct spot'
-
-    // call the handleGuess function with the correct parameters (the user's guess and the "correct" hiding place) to do DOM work
+	// get a random item to call the 'correct spot'
+	const correctSpot = getRandomHidingSpot();
+	handleGuess('boulder', correctSpot);
+	// call the handleGuess function with the correct parameters (the user's guess and the "correct" hiding place) to do DOM work
 });
 
 
 function getRandomHidingSpot() {
-    // initialize state
-    const hidingPlaces = [
-        'tree',
-        'shed',
-        'boulder'
-    ];
+	// initialize state
+	const hidingPlaces = [
+		'tree',
+		'shed',
+		'boulder'
+	];
 
-    const index = Math.floor(Math.random() * hidingPlaces.length);
+	const index = Math.floor(Math.random() * hidingPlaces.length);
+	return hidingPlaces[index];
 
-    // use the random index above and the array of hidingPlaces to get a random hiding place string
+	//returning one of the values in the array at index 
 
-    // return that random hiding place string
+	// use the random index above and the array of hidingPlaces to get a random hiding place string
+
+	// return that random hiding place string
 }
 
 function handleGuess(userGuess, correctSpot) {
-    // first, right after clicking, we need to remove the emoiji face from the previous hiding place that way we don't end up with more than one emoji face
+	shedContainer.classList.remove('face');
 
-    // we can do that by removing the .face class from all containers
+	treeContainer.classList.remove('face');
 
-    // then increment the guesses
+	boulderContainer.classList.remove('face');
+	// first, right after clicking, we need to remove the emoiji face from the previous hiding place that way we don't end up with more than one emoji face
 
-    // then use getElementById and the correctSpot string to grab the appropriate container from the DOM
+	// we can do that by removing the .face class from all containers
 
-    // then add the .face css class to that element so that the face shows up
+	// then increment the guesses
+	if (userGuess === correctSpot) {
+		totalGuesses++;
+	}
+	// then use getElementById and the correctSpot string to grab the appropriate container from the DOM
 
-    // then if the user guess is correct, increment the correct guesses
+	// then add the .face css class to that element so that the face shows up
 
-    // update the DOM to show the new value of wins, losses and total guesses to the user
+	// then if the user guess is correct, increment the correct guesses
+	if (userGuess === correctSpot) {
+		correctGuesses++;
+	}
+	// update the DOM to show the new value of wins, losses and total guesses to the user
+	winsEl.textContent = correctGuesses;
+	totalEl.textContent = totalGuesses;
+	lossesEl.textContent = totalGuesses - correctGuesses;
+
 }
