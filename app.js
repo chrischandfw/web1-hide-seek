@@ -11,6 +11,8 @@ const totalEl = document.getElementById('total');
 const lossesEl = document.getElementById('losses');
 const winsEl = document.getElementById('wins');
 
+console.log(7);
+
 
 let correctGuesses = 0;
 let totalGuesses = 0;
@@ -71,6 +73,7 @@ function handleGuess(userGuess, correctSpot) {
 	// then use getElementById and the correctSpot string to grab the appropriate container from the DOM
     let hidingSpotEl = document.getElementById(correctSpot + '-container');
 	// then add the .face css class to that element so that the face shows up
+    hidingSpotEl.classList.toggle('face');
 
 	// then if the user guess is correct, increment the correct guesses
     if (userGuess === correctSpot) {
